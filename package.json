@@ -13,6 +13,7 @@
     "build": "lerna run build --parallel",
     "prod-web": "lerna bootstrap && (cd web && npm install && npm run build)",
     "prod-gen": "lerna bootstrap && (cd web && npm install && npm run generate)",
+    "postinstall": "lerna bootstrap",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
