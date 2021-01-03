@@ -1,0 +1,30 @@
+{
+  "name": "rupamkairi.github.io",
+  "description": "",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev-cm": "lerna bootstrap && (cd cm && npm run start)",
+    "dev-web": "lerna bootstrap && (cd web && npm run dev)",
+    "build-cm": "lerna bootstrap && (cd cm && npm run build)",
+    "build-web": "lerna bootstrap && (cd web && npm run build)",
+    "postinstall": "lerna bootstrap",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rupamkairi/rupamkairi.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rupamkairi/rupamkairi.github.io/issues"
+  },
+  "homepage": "https://github.com/rupamkairi/rupamkairi.github.io#readme",
+  "devDependencies": {
+    "@sanity/cli": "^2.1.0",
+    "lerna": "^3.22.1"
+  },
+  "dependencies": {}
+}
