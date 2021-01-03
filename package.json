@@ -5,11 +5,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev-cm": "lerna bootstrap && (cd cm && npm run start)",
     "dev-web": "lerna bootstrap && (cd web && npm run dev)",
-    "build-cm": "lerna bootstrap && (cd cm && npm run build)",
+    "dev-cm": "lerna bootstrap && (cd cm && npm run start)",
+    "dev": "lerna run dev --parallel",
     "build-web": "lerna bootstrap && (cd web && npm run build)",
-    "postinstall": "lerna bootstrap",
+    "build-cm": "lerna bootstrap && (cd cm && npm run build)",
+    "build": "lerna run build --parallel",
+    "gen-web": "lerna bootstrap && (cd web && npm run generate)",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,6 +27,5 @@
   "devDependencies": {
     "@sanity/cli": "^2.1.0",
     "lerna": "^3.22.1"
-  },
-  "dependencies": {}
+  }
 }
