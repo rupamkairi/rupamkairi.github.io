@@ -1,68 +1,46 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">rupamkairi.github.io</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+  <div class="container h-screen mx-auto flex items-center justify-center">
+    <div
+      class="m-auto p-8 rounded shadow-lg bg-white flex flex-col items-center"
+    >
+      <SanityImage
+        class="rounded-full shadow-xl w-32 h-32"
+        :project-id="this.$sanity.config.projectId"
+        :dataset="this.$sanity.config.dataset"
+        :asset-id="main_author.image.asset._ref"
+        auto="format"
+      />
+      <span class="text-4xl font-black text-center">{{
+        main_author.name
+      }}</span>
+      <p class="text-gray-500">Everywhere as</p>
+      <span class="text-xl font-normal text-center">{{
+        main_author.slug.current
+      }}</span>
+      <p class="text-gray-500">Except on Twitter, as</p>
+      <span class="text-xl font-normal text-center"> @RupamKairi </span>
     </div>
   </div>
+  <!-- <pre>{{ main_author }}</pre> -->
 </template>
 
 <script>
-export default {}
+import { groq } from '@nuxtjs/sanity'
+import { SanityImage } from '@nuxtjs/sanity/dist/sanity-image'
+
+const query = groq`*[_type == "author"][0]`
+
+export default {
+  components: { SanityImage },
+  async fetch() {
+    this.main_author = await this.$sanity.fetch(query)
+  },
+  data() {
+    return {
+      main_author: '',
+    }
+  },
+}
 </script>
 
-<style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-@apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
+<style></style>
