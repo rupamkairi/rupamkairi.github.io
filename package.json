@@ -6,10 +6,10 @@
   "main": "index.js",
   "scripts": {
     "dev-web": "lerna bootstrap && (cd web && npm run dev)",
-    "dev-cm": "lerna bootstrap && (cd cm && npm run start)",
+    "dev-cms": "lerna bootstrap && (cd cms && npm run start)",
     "dev": "lerna run dev --parallel",
     "build-web": "lerna bootstrap && (cd web && npm run build)",
-    "build-cm": "lerna bootstrap && (cd cm && npm run build)",
+    "build-cms": "lerna bootstrap && (cd cms && npm run build)",
     "build": "lerna run build --parallel",
     "prod-gen": "lerna bootstrap && (cd web && npm run generate)",
     "postinstall": "lerna bootstrap",
