@@ -25,22 +25,22 @@
 </template>
 
 <script>
-import { groq } from '@nuxtjs/sanity'
-import { SanityImage } from '@nuxtjs/sanity/dist/sanity-image'
+import { groq } from '@nuxtjs/sanity';
+import { SanityImage } from '@nuxtjs/sanity/dist/sanity-image';
 
-const query = groq`*[_type == "author"][0]`
+const query = groq`*[_type == "author"][0]`;
 
 export default {
   components: { SanityImage },
   async fetch() {
-    this.main_author = await this.$sanity.fetch(query)
+    this.main_author = await this.$sanity.fetch(query);
   },
   data() {
     return {
       main_author: '',
-    }
+    };
   },
-}
+};
 </script>
 
 <style></style>
