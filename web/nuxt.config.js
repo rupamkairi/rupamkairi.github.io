@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config();
 
 export default {
   target: 'static',
@@ -13,7 +13,7 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   css: [],
-  plugins: [],
+  plugins: [{ src: '~plugins/crisp.js', mode: 'client' }],
   components: true,
   buildModules: [
     '@nuxtjs/eslint-module',
@@ -25,8 +25,9 @@ export default {
     projectId: process.env.Sanity_projectId,
     dataset: process.env.Sanity_dataset,
     useCdn: true,
+    crisp_websiteId: process.env.Crisp_websiteId,
   },
   modules: ['@nuxtjs/axios'],
   axios: {},
   build: {},
-}
+};
