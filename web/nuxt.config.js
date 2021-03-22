@@ -13,7 +13,7 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   css: [],
-  plugins: [{ src: '~plugins/crisp.js', mode: 'client' }],
+  plugins: [{ src: '~plugins/crisp.js' }],
   components: true,
   buildModules: [
     '@nuxtjs/eslint-module',
