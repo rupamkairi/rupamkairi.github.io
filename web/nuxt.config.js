@@ -2,7 +2,9 @@ require('dotenv').config();
 
 export default {
   target: 'static',
-
+  env: {
+    crisp_websiteId: process.env.Crisp_websiteId,
+  },
   head: {
     title: process.env.title,
     meta: [
@@ -13,7 +15,7 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   css: [],
-  plugins: [{ src: '~plugins/crisp.js' }],
+  plugins: [{ src: '~plugins/crisp.js', mode: 'client' }],
   components: true,
   buildModules: [
     '@nuxtjs/eslint-module',
@@ -25,7 +27,6 @@ export default {
     projectId: process.env.Sanity_projectId,
     dataset: process.env.Sanity_dataset,
     useCdn: true,
-    crisp_websiteId: process.env.Crisp_websiteId,
   },
   modules: ['@nuxtjs/axios'],
   axios: {},

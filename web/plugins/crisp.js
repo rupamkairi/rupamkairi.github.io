@@ -1,6 +1,7 @@
 export default () => {
   window.$crisp = [];
-  window.CRISP_WEBSITE_ID = process.env.Crisp_websiteId;
+
+  window.CRISP_WEBSITE_ID = process.env.crisp_websiteId;
 
   (function () {
     const d = document;
