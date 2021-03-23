@@ -1,8 +1,10 @@
-require('dotenv').config()
+require('dotenv').config();
 
 export default {
   target: 'static',
-
+  env: {
+    crisp_websiteId: process.env.Crisp_websiteId,
+  },
   head: {
     title: process.env.title,
     meta: [
@@ -13,7 +15,7 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   css: [],
-  plugins: [],
+  plugins: [{ src: '~plugins/crisp.js', mode: 'client' }],
   components: true,
   buildModules: [
     '@nuxtjs/eslint-module',
@@ -29,4 +31,4 @@ export default {
   modules: ['@nuxtjs/axios'],
   axios: {},
   build: {},
-}
+};
